@@ -1,15 +1,24 @@
-const loadData=()=>{
+const loadData=()=>{ 
+    toggleSpinner(true)
     fetch('https://openapi.programming-hero.com/api/ai/tools')
     .then(res =>res.json())
     .then(data=>displayData(data.data.tools))
+   
+}
 
-    
+const toggleSpinner =(isLoading)=>{
+    const spin=document.getElementById('spinner')
+    if(isLoading){
+        spin.classList.remove('d-none')
+    }
+    else{
+        spin.classList.add('d-none')
+    }
 }
 
 const displayData=(data)=>{
-    data=data.slice(0,6)
     data.forEach(elements => {
-        console.log(elements)
+        // console.log(elements)
     const content=document.getElementById('content')
     const text=document.createElement('div')
     text.innerHTML=`
@@ -26,14 +35,20 @@ const displayData=(data)=>{
   </div>
     `
     content.appendChild(text)
-
-
-
-
-
- 
-    
   });
+//   stop spinner
+toggleSpinner(false)
 
 }
+
+
+
+
+document.getElementById('show').addEventListener('click',function(){
+
+
+})
+
 loadData()
+
+
