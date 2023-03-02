@@ -7,9 +7,9 @@ const loadData=()=>{
 }
 
 const displayData=(data)=>{
+    data=data.slice(0,6)
     data.forEach(elements => {
         console.log(elements)
-   
     const content=document.getElementById('content')
     const text=document.createElement('div')
     text.innerHTML=`
@@ -22,10 +22,8 @@ const displayData=(data)=>{
       <p class="card-text ">3.${elements.features[2]}</p>
       <h4>${elements.name}   <a><i class="fa-solid fa-arrow-right ms-5"></i></a></h4>
       <p>${elements.published_in}</p>
-    
     </div>
   </div>
-
     `
     content.appendChild(text)
 
