@@ -8,7 +8,7 @@ const loadData=()=>{
 
 const displayData=(data)=>{
     data.forEach(elements => {
-        // console.log(elements);
+        console.log(elements)
    
     const content=document.getElementById('content')
     const text=document.createElement('div')
@@ -20,6 +20,9 @@ const displayData=(data)=>{
       <p class="card-text ">1.${elements.features[0]}</p>
       <p class="card-text ">2.${elements.features[1]}</p>
       <p class="card-text ">3.${elements.features[2]}</p>
+      <h4>${elements.name}   <button type="button" class="btn btn-outline-info ms-5">Info</button></h4>
+      <p>${elements.published_in}</p>
+    
     </div>
   </div>
 
