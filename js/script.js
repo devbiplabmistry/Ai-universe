@@ -68,7 +68,9 @@ fetch(`https://openapi.programming-hero.com/api/ai/tool/0${id}`)
 
 }
 const displayModal=(data)=>{
-  console.log(data.data.features);
+  console.log(data.data.input_output_examples[0]
+
+    )
   const title=document.getElementById('exampleModalLabel')
   title.innerText=`${data.data.description}`
   const basic=document.getElementById('basic')
@@ -85,17 +87,41 @@ const displayModal=(data)=>{
   `
 
   const featur=document.getElementById('featur')
+  featur.innerText=''
     const featurText=document.createElement('div')
     featurText.innerHTML=`
       <h5>Features</h5>
-      <p class="card-text ">1.${data.data.features[0].feature_name}</p>
-      <p class="card-text ">2.${elements.features[1].feature_name}</p>
-      <p class="card-text ">3.${elements.features[2].feature_name}</p>
-   
-    
+      <p class="card-text ">1.${data.data.features['1'].feature_name}</p>
+      <p class="card-text ">2.${data.data.features['2'].feature_name}</p>
+      <p class="card-text ">3.${data.data.features['3'].feature_name}</p>
     `
     featur.appendChild(featurText)
 
+  const integration=document.getElementById('integration')
+  integration.innerText=''
+    const integrationText=document.createElement('div')
+    integrationText.innerHTML=`
+      <h5>Integrations</h5>
+      <p class="card-text ">1.${data.data.integrations[0]}</p>
+      <p class="card-text ">2.${data.data.integrations[1]}</p>
+      <p class="card-text ">3.${data.data.integrations[2]}</p>
+    `
+    integration.appendChild(integrationText)
+
+    const image=document.getElementById('image')
+    image.innerHTML=`
+    <img style="width:100% ;" src="${data.data.image_link[0]}" alt="">
+    
+    `
+
+    const input=document.getElementById('input')
+    input.innerText=''
+    const div=document.createElement('div')
+    div.innerHTML=`
+    <h3>${data.data.input_output_examples[0].input}</h3>
+    <p class="mt-4" >${data.data.input_output_examples[0].output}</p>  
+    `
+input.appendChild(div)
 
 }
 loadData()
