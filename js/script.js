@@ -59,8 +59,15 @@ fetch(`https://openapi.programming-hero.com/api/ai/tool/${i}`)
 
 }
 const displayModal=(data)=>{
-
-console.log(data.data.pricing[0].price);
+  const accure=document.getElementById('accur');
+  if(data.data.accuracy.score==null){
+    accure.classList.add('d-none')
+  }
+  else{
+    accure.classList.remove('d-none')
+  }
+// console.log(data.data.pricing[0].price);
+console.log(data.data.accuracy.score);
   // console.log(data.data.accuracy.description
   //   );
   const title=document.getElementById('exampleModalLabel')
@@ -105,10 +112,7 @@ console.log(data.data.pricing[0].price);
     image.innerHTML=`
     <img style="width:100% ;" src="${data.data.image_link[0]}" alt=""" class="position-relative">
     
-    <button class="btn-danger position-absolute")> ${data.data.accuracy.score ? data.data.accuracy.score :'no data'}  </button>
-   
-    </button>
-    
+
     `
 
     const input=document.getElementById('input')
