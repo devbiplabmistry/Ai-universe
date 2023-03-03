@@ -59,6 +59,10 @@ fetch(`https://openapi.programming-hero.com/api/ai/tool/${i}`)
 
 }
 const displayModal=(data)=>{
+
+
+  // console.log(data.data.accuracy.description
+  //   );
   const title=document.getElementById('exampleModalLabel')
   title.innerText=`${data.data.description ? data.data.description :'No data ' }`
   const basic=document.getElementById('basic')
@@ -99,7 +103,9 @@ const displayModal=(data)=>{
     const image=document.getElementById('image')
     image.innerHTML=`
     <img style="width:100% ;" src="${data.data.image_link[0]}" alt=""" class="position-relative">
-    <button class="btn-danger position-absolute ">94% accuracy </button>
+    
+    <button class="btn-danger position-absolute")> ${data.data.accuracy.score ? data.data.accuracy.score :'no data'}  </button>
+   
     </button>
     
     `
@@ -113,7 +119,12 @@ const displayModal=(data)=>{
     `
 input.appendChild(div)
 
+
+
 }
+
+
+
 loadData()
 
 
