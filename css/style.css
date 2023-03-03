@@ -37,3 +37,9 @@ ul,ol{
     top: -15px;
     right: -15px;
 }
+.btn-danger{
+    top: 20px;
+    right: 20px;
+    border-radius: 5px;
+    width: 120px;
+}

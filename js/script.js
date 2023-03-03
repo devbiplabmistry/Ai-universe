@@ -98,7 +98,9 @@ const displayModal=(data)=>{
 
     const image=document.getElementById('image')
     image.innerHTML=`
-    <img style="width:100% ;" src="${data.data.image_link[0]}" alt="">
+    <img style="width:100% ;" src="${data.data.image_link[0]}" alt=""" class="position-relative">
+    <button class="btn-danger position-absolute ">94% accuracy </button>
+    </button>
     
     `
 
