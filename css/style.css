@@ -13,3 +13,27 @@ ul,ol{
     list-style-type: none;
     margin-bottom: 0;
 }
+.modal-plans{
+    display: flex;
+    gap: 12px;
+   
+}
+.modal-plans plans{
+    padding: 25px;
+    background-color: red;
+   
+}
+.modal-contents{
+    display: flex;
+    gap: 12px;
+}
+.modal-body{
+    display: flex;
+    gap: 20px;
+  
+}
+.modal-footer{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
