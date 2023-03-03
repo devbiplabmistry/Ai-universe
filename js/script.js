@@ -60,22 +60,23 @@ fetch(`https://openapi.programming-hero.com/api/ai/tool/${i}`)
 }
 const displayModal=(data)=>{
 
-
+console.log(data.data.pricing[0].price);
   // console.log(data.data.accuracy.description
   //   );
   const title=document.getElementById('exampleModalLabel')
   title.innerText=`${data.data.description ? data.data.description :'No data ' }`
   const basic=document.getElementById('basic')
-  basic.innerText=`${data.data.pricing[0].price ? data.data.pricing[0].price : 'No data found'}
-         ${data.data.pricing[0].plan ? data.data.pricing[0].plan :'No data found'}
+  basic.innerText=`${ (data.data.pricing[0].price)=='No cost' ? 'free of cost'  : data.data.pricing[0].price}
+
+         ${(data.data.pricing[0].plan)=='Free' ? 'Basic' :data.data.pricing[0].plan }
   `
   const pro=document.getElementById('pro')
-  pro.innerText=`${data.data.pricing[1].price ? data.data.pricing[1].price :'no data found' }
-         ${data.data.pricing[1].plan ? data.data.pricing[1].plan  :'no data found' }
+  pro.innerText=`${(data.data.pricing[1].price)=='No cost' ? 'Free of cost'  :data.data.pricing[1].price }
+         ${(data.data.pricing[1].plan) ==='Free' ? 'Basic' : data.data.pricing[1].plan }
   `
   const Enterprise=document.getElementById('Enterprise')
-  Enterprise.innerText=`${data.data.pricing[2].price ? data.data.pricing[2].price :'no data found'}
-         ${data.data.pricing[2].plan ? data.data.pricing[2].plan  :'no data found' }
+  Enterprise.innerText=`${(data.data.pricing[2].price)=='Contact us for pricing' ? 'Free of cost' : data.data.pricing[2].price }
+         ${(data.data.pricing[2].plan ) ==='Free'?  'Pro' :data.data.pricing[2].plan }
   `
  
   const featur=document.getElementById('featur')
@@ -119,11 +120,7 @@ const displayModal=(data)=>{
     `
 input.appendChild(div)
 
-
-
 }
-
-
 
 loadData()
 
