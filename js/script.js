@@ -16,29 +16,36 @@ const toggleSpinner =(isLoading)=>{
     }
 }
 
-const displayData=(data)=>{
-  // console.log(data);
+const displayData=(data)=>{  
   const show=document.getElementById('show');
-    data.forEach(elements => {
+  if( data.length >10){
+    data=data.slice(0,6)  
+    show.classList.remove('d-none')
+  }
+  else{
+    show.classList.add('d-none')
+   
+  }
+  data.forEach(elements => {
+    // console.log(elements.id)
+const content=document.getElementById('content')
+const text=document.createElement('div')
+text.innerHTML=`
+<div class="card" style="width: 18rem;">
+<img src="${elements.image}" class="card-img-top" alt="...">
+<div class="card-body">
+  <h5 class="card-title">Features</h5>
+  <p class="card-text ">1.${elements.features[0] ? elements.features[0]:'No data found' }</p>
+  <p class="card-text ">2.${elements.features[1] ? elements.features[1] :'No data found'}</p>
+  <p class="card-text ">3.${elements.features[2] ? elements.features[2] :'No data found'}</p>
+  <h4>${elements.name} <button onclick=detailsLoading(${elements.id})  type="button"  class="ms-5 border-0 rounded"   data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button></h4>
+  <p>${elements.published_in}</p>
+</div>
+</div>
+`
+content.appendChild(text)
+});
 
-        // console.log(elements.id)
-    const content=document.getElementById('content')
-    const text=document.createElement('div')
-    text.innerHTML=`
-    <div class="card" style="width: 18rem;">
-    <img src="${elements.image}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Features</h5>
-      <p class="card-text ">1.${elements.features[0] ? elements.features[0]:'No data found' }</p>
-      <p class="card-text ">2.${elements.features[1] ? elements.features[1] :'No data found'}</p>
-      <p class="card-text ">3.${elements.features[2] ? elements.features[2] :'No data found'}</p>
-      <h4>${elements.name} <button onclick=detailsLoading(${elements.id})  type="button"  class="ms-5 border-0 rounded"   data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button></h4>
-      <p>${elements.published_in}</p>
-    </div>
-  </div>
-    `
-    content.appendChild(text)
-  });
 //   stop spinner
 toggleSpinner(false)
 
@@ -126,6 +133,39 @@ input.appendChild(div)
 
 }
 
+const loadData2=()=>{ 
+  toggleSpinner(true)
+  fetch('https://openapi.programming-hero.com/api/ai/tools')
+  .then(res =>res.json())
+  .then(data=>process(data.data.tools))
+ 
+}
+const process=(data)=>{
+  data=data.slice(6,12)
+  document.getElementById('show').classList.add('d-none')
+  data.forEach(elements => {
+    // console.log(elements.id)
+const content=document.getElementById('content')
+const text=document.createElement('div')
+text.innerHTML=`
+<div class="card" style="width: 18rem;">
+<img src="${elements.image}" class="card-img-top" alt="...">
+<div class="card-body">
+  <h5 class="card-title">Features</h5>
+  <p class="card-text ">1.${elements.features[0] ? elements.features[0]:'No data found' }</p>
+  <p class="card-text ">2.${elements.features[1] ? elements.features[1] :'No data found'}</p>
+  <p class="card-text ">3.${elements.features[2] ? elements.features[2] :'No data found'}</p>
+  <h4>${elements.name} <button onclick=detailsLoading(${elements.id})  type="button"  class="ms-5 border-0 rounded"   data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right"></i></button></h4>
+  <p>${elements.published_in}</p>
+</div>
+</div>
+`
+content.appendChild(text)
+});
+toggleSpinner(false)
+
+}
+   
 loadData()
 
 

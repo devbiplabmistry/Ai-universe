@@ -1,0 +1,12 @@
+@media (min-width: 575px) and (max-width: 767px) { 
+#modal-body{
+    width: 100% !important;
+}
+#modal-content{
+    width:100% !important;
+}
+#accur {
+	top: 9px;
+	right: 15px;
+}
+ }

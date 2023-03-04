@@ -7,14 +7,13 @@
     <title>Ai-Universe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/639ec19282.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/media.css">
 <body>
  <div class="container ">
     <header class="text-center mb-5 mt-5">
 <h1>AI Universe Hub</h1>
-<button class="btn-danger mt-3 p-2">Sort By Date</button>
+<button  id="sort" class="btn-danger mt-3 p-2">Sort By Date</button>
     </header>
     <main>
         <section id="content" class="d-flex flex-wrap gap-4">
@@ -23,7 +22,7 @@
         </section>
     </main>
     <section class="text-center">
-        <button id="show" type="button" class="btn btn-danger mt-5 d-none">Show More</button>
+        <button onclick="loadData2()" id="show" type="button" class="btn btn-danger mt-5 d-none ">Show More</button>
     </section>
     <section>
         <div style="height: 400px; line-height: 400px;" class="text-center d-none" id="spinner">
@@ -40,12 +39,12 @@
   <!-- Modal -->
   <div  class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog"  >
-      <div class="modal-content"style="width:800px;">
+      <div class="modal-content"style="width:100%;">
   
     <div class="modal-header">
         <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
       </div>
-      <div class="modal-body" style="width:800px;">
+      <div class="modal-body" style="width:100%;">
     <div>
         <h5 class="modal-title" id="exampleModalLabel"></h5>
         <div class="modal-plans">
