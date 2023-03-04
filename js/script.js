@@ -30,6 +30,7 @@ const displayData=(data)=>{
     // console.log(elements.id)
 const content=document.getElementById('content')
 const text=document.createElement('div')
+text.classList.add('m');
 text.innerHTML=`
 <div class="card" style="width: 18rem;">
 <img src="${elements.image}" class="card-img-top" alt="...">
